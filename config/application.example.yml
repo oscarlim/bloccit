@@ -1,0 +1,8 @@
+AWS_ACCESS_KEY_ID: "AKIAIADYDQETQOOZ5FTQ"
+AWS_SECRET_ACCESS_KEY: "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"
+development:
+  SENDGRID_USERNAME: "app22666725@heroku.com"
+  SENDGRID_PASSWORD: "qpsvvuhu"
+  AWS_BUCKET: oscar-bloccit-development
+production:
+  AWS_BUCKET: oscar-bloccit-production
