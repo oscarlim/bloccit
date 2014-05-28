@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 
+  #cancan
   ROLES = %w[member moderator admin]
     def role?(base_role)
       role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
@@ -24,5 +25,10 @@ class User < ActiveRecord::Base
   before_create :set_member
 
   mount_uploader :avatar, AvatarUploader
+
+  #add User Comments
+  has_many :comments
+
+
 end
 

@@ -13,8 +13,6 @@ class TopicsController < ApplicationController
     @posts = @topic.posts.paginate(page: params[:page], per_page: 10)
   end
 
-  end
-
   def edit
     @topic = Topic.find(params[:id])
     authorize! :update, @topic, message: "you need to be an admin to do that."
@@ -44,4 +42,18 @@ class TopicsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @topic = Topic.find(params[:id])
+    name = @topic.name
+    authorize! :destroy, @topic, message: "You need to own the topic to delete it."
+    if @topic.destroy
+      flash[:notice] = "\"#{name}\" was deleted successfully."
+      redirect_to topics_path
+    else
+      flash[:error] = "There was an error deleting the topic."
+      render :show
+    end
+  end
+end
 
