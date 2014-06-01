@@ -1,14 +1,6 @@
 Bloccit::Application.routes.draw do
   
-  get "comments/create"
 
-  get "comments/index"
-
-  get "comments/new"
-
-  get "comments/show"
-
-  get "comments/edit"
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   
